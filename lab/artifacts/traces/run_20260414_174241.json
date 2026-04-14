@@ -1,0 +1,52 @@
+{
+  "task": "Nhân viên vừa vào thử việc (trong probation period) muốn làm remote vì lý do cá nhân. Điều kiện là gì?",
+  "route_reason": "Câu hỏi liên quan đến quy định và chính sách về làm việc từ xa trong thời gian thử việc. | needs_tool=True, will use MCP",
+  "risk_high": false,
+  "needs_tool": true,
+  "hitl_triggered": false,
+  "retrieved_chunks": [],
+  "retrieved_sources": [],
+  "policy_result": {
+    "policy_applies": true,
+    "policy_name": "refund_policy_v4",
+    "exceptions_found": [],
+    "source": [],
+    "policy_version_note": "",
+    "explanation": "Trong trường hợp nhân viên mới đang trong thời gian thử việc (probation period) và muốn làm việc từ xa vì lý do cá nhân, có thể áp dụng một số chính sách (policy) và quy định như sau:\n\n### Chính sách áp dụng:\n1. **Chính sách làm việc từ xa**: Tổ chức cần có một chính sách rõ ràng về làm việc từ xa, trong đó quy định về các điều kiện, thủ tục và yêu cầu liên quan đến việc làm từ xa, đặc biệt là cho nhân viên trong thời gian thử việc.\n   \n2. **Chính sách về thử việc**: Có thể có quy định rằng trong thời gian thử việc, nhân viên cần phải có mặt tại văn phòng để dễ dàng tiếp xúc, đào tạo và đánh giá hiệu quả công việc.\n\n### Điều kiện để được làm remote:\n1. **Thời gian thử việc tối thiểu**: Nhân viên có thể cần hoàn thành một số tuần nhất định trong thời gian thử việc trước khi xin làm việc từ xa.\n   \n2. **Hiệu suất công việc**: Nhân viên cần chứng minh được hiệu suất làm việc tốt trong thời gian đầu để đảm bảo rằng công việc có thể được tiếp tục thực hiện hiệu quả từ xa.\n\n3. **Phê duyệt của quản lý**: Nhân viên cần có sự phê duyệt từ quản lý trực tiếp hoặc bộ phận nhân sự, yêu cầu có lý do hợp lý và chính đáng.\n\n### Exceptions:\n1. **Tình huống khẩn cấp**: Nếu nhân viên có lý do cá nhân khẩn cấp, ví dụ như vấn đề sức khỏe hoặc gia đình, có thể xem xét cho phép làm việc từ xa mà không cần tuân theo tất cả các điều kiện nêu trên.\n\n2. **Chính sách linh hoạt**: Một số tổ chức có thể có chính sách linh hoạt hơn, cho phép làm việc từ xa ngay cả trong thời gian thử việc nếu hoạt động công việc không bị ảnh hưởng.\n\n3. **Công việc không yêu cầu có mặt tại văn phòng**: Nếu vai trò của nhân viên không yêu cầu phải hiện diện tại văn phòng (ví dụ: vị trí công nghệ thông tin, sáng tạo nội dung), có thể có nhiều khả năng được cho phép làm việc từ xa hơn.\n\nNhìn chung, nên tham khảo chính sách nội bộ của công ty để có thông tin chi tiết và chính xác hơn về các quy định liên quan."
+  },
+  "mcp_tools_used": [
+    {
+      "tool": "search_kb",
+      "input": {
+        "query": "Nhân viên vừa vào thử việc (trong probation period) muốn làm remote vì lý do cá nhân. Điều kiện là gì?",
+        "top_k": 3
+      },
+      "output": {
+        "chunks": [],
+        "sources": [],
+        "total_found": 0
+      },
+      "error": null,
+      "timestamp": "2026-04-14T17:42:44.342537"
+    }
+  ],
+  "final_answer": "Không đủ thông tin trong tài liệu nội bộ.",
+  "sources": [],
+  "confidence": 0.3,
+  "history": [
+    "[supervisor] received task: Nhân viên vừa vào thử việc (trong probation period) muốn làm remote vì lý do cá ",
+    "[supervisor] route=policy_tool_worker reason=Câu hỏi liên quan đến quy định và chính sách về làm việc từ xa trong thời gian thử việc. | needs_tool=True, will use MCP",
+    "[policy_tool_worker] called MCP search_kb",
+    "[policy_tool_worker] policy_applies=True, exceptions=0",
+    "[synthesis_worker] answer generated, confidence=0.3, sources=[]",
+    "[graph] completed in 12281ms"
+  ],
+  "workers_called": [
+    "policy_tool_worker",
+    "synthesis_worker"
+  ],
+  "supervisor_route": "policy_tool_worker",
+  "latency_ms": 12281,
+  "run_id": "run_20260414_174241",
+  "question_id": "q14"
+}

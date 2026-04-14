@@ -1,0 +1,52 @@
+{
+  "task": "Store credit khi hoàn tiền có giá trị bao nhiêu so với tiền gốc?",
+  "route_reason": "Câu hỏi liên quan đến quy định hoàn tiền và giá trị store credit. | needs_tool=True, will use MCP",
+  "risk_high": false,
+  "needs_tool": true,
+  "hitl_triggered": false,
+  "retrieved_chunks": [],
+  "retrieved_sources": [],
+  "policy_result": {
+    "policy_applies": true,
+    "policy_name": "refund_policy_v4",
+    "exceptions_found": [],
+    "source": [],
+    "policy_version_note": "",
+    "explanation": "Để xác định giá trị của store credit khi hoàn tiền, trước hết cần biết các chính sách hoàn tiền cụ thể của cửa hàng hoặc dịch vụ đang đề cập đến. Thông thường, store credit có thể có giá trị bằng hoặc thấp hơn tiền gốc tùy thuộc vào chính sách hoàn hàng của từng doanh nghiệp.\n\n**Policy áp dụng:**\n1. **Chính sách hoàn tiền:** Nhiều cửa hàng cho phép hoàn tiền bằng store credit với giá trị tương đương với số tiền gốc người tiêu dùng đã bỏ ra. Tuy nhiên, một số nơi chỉ cung cấp store credit với một tỷ lệ phần trăm nhất định của giá tiền gốc (ví dụ: 80% giá trị gốc).\n\n**Exceptions có thể xảy ra:**\n1. **Hàng sale hoặc giảm giá:** Nếu sản phẩm đã được giảm giá hoặc thuộc chương trình khuyến mãi, giá trị store credit có thể bị giảm hơn so với giá mua ban đầu.\n2. **Thời gian hoàn đổi:** Một số cửa hàng có thời hạn nhất định cho việc yêu cầu hoàn tiền, và nếu quá thời gian này, giá trị store credit có thể bị giới hạn hoặc không được chấp nhận.\n3. **Sản phẩm không đủ điều kiện hoàn trả:** Một số sản phẩm có thể không đủ tiêu chuẩn để được hoàn trả và do đó không nhận được store credit.\n4. **Sản phẩm đã qua sử dụng:** Hàng hoá đã qua sử dụng hoặc không còn trong tình trạng bán được có thể không đủ điều kiện hoàn trả hoặc chỉ được hoàn trả với giá trị thấp hơn.\n\nNhư vậy, để có thông tin chính xác, bạn cần xem xét chính sách cụ thể của cửa hàng hoặc dịch vụ mà bạn đang quan tâm."
+  },
+  "mcp_tools_used": [
+    {
+      "tool": "search_kb",
+      "input": {
+        "query": "Store credit khi hoàn tiền có giá trị bao nhiêu so với tiền gốc?",
+        "top_k": 3
+      },
+      "output": {
+        "chunks": [],
+        "sources": [],
+        "total_found": 0
+      },
+      "error": null,
+      "timestamp": "2026-04-14T17:42:00.881488"
+    }
+  ],
+  "final_answer": "Không đủ thông tin trong tài liệu nội bộ.",
+  "sources": [],
+  "confidence": 0.2,
+  "history": [
+    "[supervisor] received task: Store credit khi hoàn tiền có giá trị bao nhiêu so với tiền gốc?",
+    "[supervisor] route=policy_tool_worker reason=Câu hỏi liên quan đến quy định hoàn tiền và giá trị store credit. | needs_tool=True, will use MCP",
+    "[policy_tool_worker] called MCP search_kb",
+    "[policy_tool_worker] policy_applies=True, exceptions=0",
+    "[synthesis_worker] answer generated, confidence=0.2, sources=[]",
+    "[graph] completed in 9200ms"
+  ],
+  "workers_called": [
+    "policy_tool_worker",
+    "synthesis_worker"
+  ],
+  "supervisor_route": "policy_tool_worker",
+  "latency_ms": 9200,
+  "run_id": "run_20260414_174159",
+  "question_id": "q10"
+}

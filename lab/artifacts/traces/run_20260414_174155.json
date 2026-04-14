@@ -1,0 +1,31 @@
+{
+  "task": "ERR-403-AUTH là lỗi gì và cách xử lý?",
+  "route_reason": "Mã lỗi kỹ thuật lạ ERR-403-AUTH cần được xem xét bởi con người để xác định nguyên nhân và cách xử lý. | human approved → retrieval",
+  "risk_high": true,
+  "needs_tool": false,
+  "hitl_triggered": true,
+  "retrieved_chunks": [],
+  "retrieved_sources": [],
+  "policy_result": {},
+  "mcp_tools_used": [],
+  "final_answer": "Không đủ thông tin trong tài liệu nội bộ.",
+  "sources": [],
+  "confidence": 0.2,
+  "history": [
+    "[supervisor] received task: ERR-403-AUTH là lỗi gì và cách xử lý?",
+    "[supervisor] route=human_review reason=Mã lỗi kỹ thuật lạ ERR-403-AUTH cần được xem xét bởi con người để xác định nguyên nhân và cách xử lý.",
+    "[human_review] HITL triggered — awaiting human input",
+    "[retrieval_worker] retrieved 0 chunks from []",
+    "[synthesis_worker] answer generated, confidence=0.2, sources=[]",
+    "[graph] completed in 4029ms"
+  ],
+  "workers_called": [
+    "human_review",
+    "retrieval_worker",
+    "synthesis_worker"
+  ],
+  "supervisor_route": "retrieval_worker",
+  "latency_ms": 4029,
+  "run_id": "run_20260414_174155",
+  "question_id": "q09"
+}
