@@ -20,27 +20,47 @@ import os
 import sys
 from typing import Optional
 
+# Reconfigure stdout for UTF-8 to handle Unicode characters in Windows console
+if sys.stdout.encoding != 'utf-8':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except AttributeError:
+        import codecs
+        sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
+
 WORKER_NAME = "policy_tool_worker"
 
 
 # ─────────────────────────────────────────────
-# MCP Client — Sprint 3: Thay bằng real MCP call
+# MCP Client — Sprint 3: Standard DONE.
+# Option Advanced: gọi HTTP server (bonus +2).
 # ─────────────────────────────────────────────
 
 def _call_mcp_tool(tool_name: str, tool_input: dict) -> dict:
     """
     Gọi MCP tool.
 
-    Sprint 3 TODO: Implement bằng cách import mcp_server hoặc gọi HTTP.
-
-    Hiện tại: Import trực tiếp từ mcp_server.py (trong-process mock).
+    Standard: Import trực tiếp từ mcp_server.py (in-process mock).
+    Advanced: Uncomment đoạn HTTP client bên dưới nếu chạy FastAPI/MCP server riêng.
     """
     from datetime import datetime
 
     try:
-        # TODO Sprint 3: Thay bằng real MCP client nếu dùng HTTP server
+        # --- Standard (DONE) ---
+        import sys
+        sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
         from mcp_server import dispatch_tool
         result = dispatch_tool(tool_name, tool_input)
+
+        # --- Advanced (uncomment nếu dùng FastAPI MCP server) ---
+        # import httpx
+        # resp = httpx.post(
+        #     "http://127.0.0.1:8000/call",
+        #     json={"tool_name": tool_name, "input": tool_input},
+        #     timeout=10.0,
+        # )
+        # result = resp.json()
+
         return {
             "tool": tool_name,
             "input": tool_input,
@@ -244,6 +264,11 @@ if __name__ == "__main__":
             "retrieved_chunks": [
                 {"text": "Yêu cầu trong 7 ngày làm việc, sản phẩm lỗi nhà sản xuất, chưa dùng.", "source": "policy_refund_v4.txt", "score": 0.85}
             ],
+        },
+        {
+            "task": "Ticket P1 lúc 2am — ai nhận thông báo và qua kênh nào?",
+            "retrieved_chunks": [],
+            "needs_tool": True,
         },
     ]
 

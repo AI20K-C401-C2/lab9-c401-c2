@@ -1,6 +1,6 @@
 """
 mcp_server.py — Mock MCP Server
-Sprint 3: Implement ít nhất 2 MCP tools.
+Sprint 3: Implement ít nhất 2 MCP tools — DONE.
 
 Mô phỏng MCP (Model Context Protocol) interface trong Python.
 Agent (MCP client) gọi dispatch_tool() thay vì hard-code từng API.
@@ -29,9 +29,18 @@ Chạy thử:
 """
 
 import os
+import sys
 import json
 from datetime import datetime
 from typing import Any, Dict, List, Optional
+
+# Reconfigure stdout for UTF-8 to handle Unicode characters in Windows console
+if sys.stdout.encoding != 'utf-8':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except AttributeError:
+        import codecs
+        sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
 
 
 # ─────────────────────────────────────────────
@@ -189,6 +198,7 @@ MOCK_TICKETS = {
         "created_at": "2026-04-13T09:15:00",
         "sla_deadline": "2026-04-14T09:15:00",
         "escalated": False,
+        "notifications_sent": [],
     },
 }
 
@@ -246,10 +256,8 @@ def tool_check_access_permission(access_level: int, requester_role: str, is_emer
         notes.append(f"Level {access_level} KHÔNG có emergency bypass. Phải follow quy trình chuẩn.")
 
     return {
-        "access_level": access_level,
         "can_grant": can_grant,
         "required_approvers": rule["required_approvers"],
-        "approver_count": len(rule["required_approvers"]),
         "emergency_override": is_emergency and rule.get("emergency_can_bypass", False),
         "notes": notes,
         "source": "access_control_sop.txt",
@@ -375,4 +383,4 @@ if __name__ == "__main__":
     print(f"  Error: {err.get('error')}")
 
     print("\n✅ MCP server test done.")
-    print("\nTODO Sprint 3: Implement HTTP server nếu muốn bonus +2.")
+    print("\nSprint 3 DONE. Bonus HTTP server: optional (see README).")
