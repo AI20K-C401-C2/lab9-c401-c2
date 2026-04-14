@@ -1,0 +1,36 @@
+{
+  "task": "Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai?",
+  "route_reason": "Câu hỏi liên quan đến quy định về việc khóa tài khoản sau khi đăng nhập sai. | needs_tool=True, will use MCP",
+  "risk_high": false,
+  "needs_tool": false,
+  "hitl_triggered": false,
+  "retrieved_chunks": [],
+  "retrieved_sources": [],
+  "policy_result": {
+    "policy_applies": true,
+    "policy_name": "refund_policy_v4",
+    "exceptions_found": [],
+    "source": [],
+    "policy_version_note": "",
+    "explanation": "Để xác định chính sách áp dụng liên quan đến việc tài khoản bị khóa sau bao nhiêu lần đăng nhập sai, bạn cần xem xét các yếu tố như:\n\n1. **Số lần đăng nhập sai tối đa**: Chính sách thường quy định một số lần tối đa mà người dùng có thể đăng nhập sai trước khi tài khoản bị khóa. Thông thường, con số này có thể dao động từ 3 đến 5 lần.\n\n2. **Thời gian khóa tài khoản**: Sau khi tài khoản bị khóa do đăng nhập sai, có thể có một khoảng thời gian mà tài khoản sẽ bị khóa tự động (ví dụ: 15 phút, 30 phút) trước khi người dùng có thể thử đăng nhập lại.\n\n3. **Biện pháp phục hồi tài khoản**: Chính sách có thể bao gồm các phương thức để phục hồi quyền truy cập vào tài khoản, như xác minh qua email hoặc số điện thoại.\n\n**Exceptions** có thể áp dụng trong các trường hợp sau:\n\n- **Người dùng đã xác minh danh tính**: Nếu người dùng có thể chứng minh danh tính của mình (thông qua câu hỏi bảo mật, email, hoặc SMS), có thể cho phép khôi phục quyền truy cập mà không cần chờ đợi thời gian khóa.\n\n- **Thay đổi địa chỉ IP hoặc thiết bị**: Nếu có những dấu hiệu bất thường, chẳng hạn như truy cập từ một địa chỉ IP lạ hoặc thiết bị chưa từng sử dụng, chính sách có thể cho phép kiểm tra thêm trước khi khóa tài khoản.\n\n- **Người dùng doanh nghiệp**: Tài khoản thuộc về tổ chức hoặc doanh nghiệp có thể có các quy định khác, có thể yêu cầu phê duyệt từ quản trị viên hệ thống.\n\nĐể có thông tin chính xác, bạn nên kiểm tra tài liệu chính sách cụ thể của nền tảng hoặc dịch vụ mà bạn đang hỏi."
+  },
+  "mcp_tools_used": [],
+  "final_answer": "Không đủ thông tin trong tài liệu nội bộ.",
+  "sources": [],
+  "confidence": 0.3,
+  "history": [
+    "[supervisor] received task: Tài khoản bị khóa sau bao nhiêu lần đăng nhập sai?",
+    "[supervisor] route=policy_tool_worker reason=Câu hỏi liên quan đến quy định về việc khóa tài khoản sau khi đăng nhập sai. | needs_tool=True, will use MCP",
+    "[policy_tool_worker] policy_applies=True, exceptions=0",
+    "[synthesis_worker] answer generated, confidence=0.3, sources=[]",
+    "[graph] completed in 12800ms"
+  ],
+  "workers_called": [
+    "policy_tool_worker",
+    "synthesis_worker"
+  ],
+  "supervisor_route": "policy_tool_worker",
+  "latency_ms": 12800,
+  "run_id": "run_20260414_174112",
+  "question_id": "q04"
+}
