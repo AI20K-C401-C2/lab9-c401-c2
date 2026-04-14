@@ -1,0 +1,36 @@
+{
+  "task": "Nhân viên được làm remote tối đa mấy ngày mỗi tuần?",
+  "route_reason": "Câu hỏi liên quan đến quy định về số ngày làm việc từ xa của nhân viên. | needs_tool=True, will use MCP",
+  "risk_high": false,
+  "needs_tool": false,
+  "hitl_triggered": false,
+  "retrieved_chunks": [],
+  "retrieved_sources": [],
+  "policy_result": {
+    "policy_applies": true,
+    "policy_name": "refund_policy_v4",
+    "exceptions_found": [],
+    "source": [],
+    "policy_version_note": "",
+    "explanation": "Để xác định chính sách (policy) về việc nhân viên làm việc từ xa (remote) tối đa bao nhiêu ngày mỗi tuần, cần phải xem xét một số yếu tố như quy định công ty, thỏa thuận lao động, và ngành nghề.\n\n1. **Chính sách áp dụng**: \n   - Nếu công ty có chính sách cho phép nhân viên làm việc từ xa, có thể sẽ có quy định cụ thể về số ngày tối đa mà nhân viên có thể làm remote mỗi tuần. Ví dụ, công ty có thể quy định từ 1 đến 5 ngày tùy thuộc vào vị trí công việc, vai trò và nhiệm vụ cụ thể.\n\n2. **Exceptions**: \n   - **Nhân viên có hiệu suất cao**: Một số công ty có thể cho phép những nhân viên có hiệu suất làm việc tốt được làm remote nhiều hơn quy định.\n   - **Khẩn cấp hoặc lý do cá nhân**: Nhân viên có thể xin phép làm remote nhiều hơn trong các trường hợp khẩn cấp hoặc lý do cá nhân hợp lý.\n   - **Công việc theo dự án**: Một số công việc hoặc dự án có thể yêu cầu nhân viên làm việc từ xa nhiều hơn, và có thể có sự chấp thuận tùy từng trường hợp.\n   - **Thỏa thuận riêng**: Nếu có thỏa thuận riêng giữa nhân viên và quản lý, điều này có thể tạo ra sự linh hoạt hơn trong chính sách.\n\nĐể có câu trả lời chính xác hơn, cần tham khảo tài liệu chính thức của công ty hoặc nội quy làm việc."
+  },
+  "mcp_tools_used": [],
+  "final_answer": "Không đủ thông tin trong tài liệu nội bộ.",
+  "sources": [],
+  "confidence": 0.3,
+  "history": [
+    "[supervisor] received task: Nhân viên được làm remote tối đa mấy ngày mỗi tuần?",
+    "[supervisor] route=policy_tool_worker reason=Câu hỏi liên quan đến quy định về số ngày làm việc từ xa của nhân viên. | needs_tool=True, will use MCP",
+    "[policy_tool_worker] policy_applies=True, exceptions=0",
+    "[synthesis_worker] answer generated, confidence=0.3, sources=[]",
+    "[graph] completed in 12377ms"
+  ],
+  "workers_called": [
+    "policy_tool_worker",
+    "synthesis_worker"
+  ],
+  "supervisor_route": "policy_tool_worker",
+  "latency_ms": 12377,
+  "run_id": "run_20260414_174759",
+  "question_id": "q05"
+}
