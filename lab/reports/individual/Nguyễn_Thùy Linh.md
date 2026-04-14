@@ -8,7 +8,7 @@
 
 ## 1. Tôi phụ trách phần nào?
 
-Trong lab Day 09, tôi phụ trách chính mảng tài liệu kỹ thuật và tổng hợp báo cáo nhóm. Cụ thể, tôi trực tiếp hoàn thiện file `docs/system_architecture.md`, phối hợp điền `docs/routing_decisions.md`, và chịu trách nhiệm viết narrative cho `reports/group_report.md` dựa trên trace chạy thật. Tôi không trực tiếp viết hàm trong worker, nhưng tôi đóng vai trò kiểm chứng chéo giữa code và docs để đảm bảo mô tả kiến trúc không bị lệch với implementation. 
+Trong lab Day 09, tôi phụ trách chính mảng tài liệu kỹ thuật và tổng hợp báo cáo nhóm. Cụ thể, tôi trực tiếp hoàn thiện file `docs/system_architecture.md` và chịu trách nhiệm viết narrative cho `reports/group_report.md` dựa trên trace chạy thật. Tôi không trực tiếp viết hàm trong worker, nhưng tôi đóng vai trò kiểm chứng chéo giữa code và docs để đảm bảo mô tả kiến trúc không bị lệch với implementation. 
 
 Song song đó, tôi hỗ trợ team về Git: thống nhất cách đặt nhánh, tách commit theo hạng mục (code/docs/report), nhắc mốc nộp trước 18:00 cho các file bị khóa theo `SCORING.md`, và xử lý các xung đột markdown khi nhiều người cùng sửa thư mục `docs/` và `reports/`. Việc này giúp các bạn code tập trung vào worker/eval, còn phần đầu ra tài liệu luôn bám sát trạng thái mới nhất của hệ thống.
 
