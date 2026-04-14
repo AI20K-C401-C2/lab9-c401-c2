@@ -17,6 +17,15 @@ Gọi độc lập để test:
 """
 
 import os
+import sys
+
+# Reconfigure stdout for UTF-8 to handle Unicode characters in Windows console
+if sys.stdout.encoding != 'utf-8':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except AttributeError:
+        import codecs
+        sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
 
 WORKER_NAME = "synthesis_worker"
 
