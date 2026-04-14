@@ -1,0 +1,65 @@
+{
+  "task": "ERR-403-AUTH là lỗi gì và cách xử lý?",
+  "route_reason": "Mã lỗi kỹ thuật lạ ERR-403-AUTH cần được xem xét bởi con người để xác định nguyên nhân và cách xử lý. | human approved → retrieval",
+  "risk_high": true,
+  "needs_tool": false,
+  "hitl_triggered": true,
+  "retrieved_chunks": [
+    {
+      "text": "Ticket P2:\n- Phản hồi ban đầu: 2 giờ.\n- Xử lý và khắc phục: 1 ngày làm việc.\n- Escalation: Tự động escalate sau 90 phút không có phản hồi.",
+      "source": "sla_p1_2026.txt",
+      "score": 0.45,
+      "metadata": {
+        "chunk_index": 8,
+        "source": "sla_p1_2026.txt"
+      }
+    },
+    {
+      "text": "Ticket P3:\n- Phản hồi ban đầu: 1 ngày làm việc.\n- Xử lý và khắc phục: 5 ngày làm việc.",
+      "source": "sla_p1_2026.txt",
+      "score": 0.4494,
+      "metadata": {
+        "source": "sla_p1_2026.txt",
+        "chunk_index": 9
+      }
+    },
+    {
+      "text": "Q: Hộp thư đến đầy, phải làm gì?\nA: Xóa email cũ hoặc yêu cầu tăng dung lượng qua ticket IT-ACCESS. Dung lượng tiêu chuẩn là 50GB.",
+      "source": "it_helpdesk_faq.txt",
+      "score": 0.4275,
+      "metadata": {
+        "chunk_index": 16,
+        "source": "it_helpdesk_faq.txt"
+      }
+    }
+  ],
+  "retrieved_sources": [
+    "it_helpdesk_faq.txt",
+    "sla_p1_2026.txt"
+  ],
+  "policy_result": {},
+  "mcp_tools_used": [],
+  "final_answer": "Không đủ thông tin trong tài liệu nội bộ.",
+  "sources": [
+    "it_helpdesk_faq.txt",
+    "sla_p1_2026.txt"
+  ],
+  "confidence": 0.0,
+  "history": [
+    "[supervisor] received task: ERR-403-AUTH là lỗi gì và cách xử lý?",
+    "[supervisor] route=human_review reason=Mã lỗi kỹ thuật lạ ERR-403-AUTH cần được xem xét bởi con người để xác định nguyên nhân và cách xử lý.",
+    "[human_review] HITL triggered — awaiting human input",
+    "[retrieval_worker] retrieved 3 chunks from ['it_helpdesk_faq.txt', 'sla_p1_2026.txt']",
+    "[synthesis_worker] answer generated, confidence=0.0, sources=['it_helpdesk_faq.txt', 'sla_p1_2026.txt']",
+    "[graph] completed in 14493ms"
+  ],
+  "workers_called": [
+    "human_review",
+    "retrieval_worker",
+    "synthesis_worker"
+  ],
+  "supervisor_route": "retrieval_worker",
+  "latency_ms": 14493,
+  "run_id": "run_20260414_174854",
+  "question_id": "q09"
+}
