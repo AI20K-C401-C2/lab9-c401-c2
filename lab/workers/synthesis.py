@@ -87,8 +87,31 @@ def _build_context(chunks: list, policy_result: dict) -> str:
 
     return "\n\n".join(parts)
 
+def _llm_judge_confidence(task: str, context: str, answer: str) -> float:
+    import re
+    judge_prompt = f"""Đánh giá câu trả lời:
+- Câu hỏi: {task}
+- Context: {context}
+- Trả lời: {answer}
 
-def _estimate_confidence(chunks: list, answer: str, policy_result: dict) -> float:
+Tiêu chí: dựa vào context không? đầy đủ không? có trích nguồn không?
+CHỈ trả về MỘT SỐ từ 0.0 đến 1.0."""
+
+    messages = [
+        {"role": "system", "content": "Chỉ trả về một số 0.0-1.0."},
+        {"role": "user", "content": judge_prompt},
+    ]
+    try:
+        raw = _call_llm(messages)
+        match = re.search(r"(0\.\d+|1\.0)", raw.strip())
+        if match:
+            return float(match.group(1))
+    except Exception:
+        pass
+    return -1
+
+
+def _estimate_confidence(chunks: list, answer: str, policy_result: dict, task: str, context: str) -> float:
     """
     Ước tính confidence dựa vào:
     - Số lượng và quality của chunks
@@ -97,6 +120,14 @@ def _estimate_confidence(chunks: list, answer: str, policy_result: dict) -> floa
 
     TODO Sprint 2: Có thể dùng LLM-as-Judge để tính confidence chính xác hơn.
     """
+    if task and context:
+        llm_score = _llm_judge_confidence(task, context, answer)
+        if llm_score >=0:
+            exception_penalty =0.05*len(policy_result.get("exceptions_found", []))
+            return round(min(0.95, llm_score - exception_penalty),2)
+
+
+
     if not chunks:
         return 0.1  # Không có evidence → low confidence
 
@@ -140,7 +171,7 @@ Hãy trả lời câu hỏi dựa vào tài liệu trên."""
 
     answer = _call_llm(messages)
     sources = list({c.get("source", "unknown") for c in chunks})
-    confidence = _estimate_confidence(chunks, answer, policy_result)
+    confidence = _estimate_confidence(chunks, answer, policy_result, task, context)
 
     return {
         "answer": answer,
