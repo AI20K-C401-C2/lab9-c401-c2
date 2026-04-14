@@ -136,6 +136,10 @@ def supervisor_node(state: AgentState) -> AgentState:
         risk_high = False
         needs_tool = False
 
+    # Sprint 3: Ensure route_reason explicitly mentions MCP when policy_tool_worker is chosen
+    if route == "policy_tool_worker" and "mcp" not in route_reason.lower() and "tool" not in route_reason.lower():
+        route_reason += " | needs_tool=True, will use MCP"
+
     state["supervisor_route"] = route
     state["route_reason"] = route_reason
     state["needs_tool"] = needs_tool
